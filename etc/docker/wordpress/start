@@ -1,0 +1,11 @@
+#!/bin/bash
+
+set -o errexit
+set -o pipefail
+set -o nounset
+
+cd /var/www/html
+touch buildinfo.json
+
+cp -fa /lhp /var/www/html/wp-content/themes/
+chmod -R 755 /var/www/html/wp-content/themes/lhp
