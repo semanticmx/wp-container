@@ -8,8 +8,8 @@ services:
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: 
-      MYSQL_DATABASE: lhp_wordpress
-      MYSQL_USER: lhp_web
+      MYSQL_DATABASE: wp_lhp_wordpress
+      MYSQL_USER: lhp
       MYSQL_PASSWORD: 
     
   wordpress:
@@ -19,18 +19,17 @@ services:
     volumes:
       - wordpress_data:/var/www/html
     ports:
-      - "80:80"
-      - "443:443"
+      - "3100:80"
     restart: always
     environment:
       WORDPRESS_DB_HOST: db:3306
-      WORDPRESS_DB_USER: lhp_web
-      WORDPRESS_DB_PASSWORD: 
-      WORDPRESS_DB_NAME: lhp_wordpress
+      WORDPRESS_DB_USER: lhp
+      WORDPRESS_DB_PASSWORD:
+      WORDPRESS_DB_NAME: wp_lhp_wordpress
   setup:
     depends_on:
       - wordpress
-    image: python
+    image: lhp_setup
     build:
       context: .
       dockerfile: ./etc/docker/wordpress/Dockerfile

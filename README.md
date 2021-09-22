@@ -13,6 +13,15 @@ docker compose -f local.yml build
 docker compose -f local.yml up
 ```
 
+### Deploy to production
+
+Rename `production.yml.tpl` to `production.yml` and adjust settings accordingly.
+
+```bash
+docker compose -f production.yml build
+docker compose -f production.yml up
+```
+
 ### Troubleshooting
 
 1. Remove image
