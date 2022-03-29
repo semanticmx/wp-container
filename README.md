@@ -9,6 +9,7 @@ Just deploy as needed.
 ### Local setup
 
 ```bash
+mkdir wp-theme
 docker compose -f local.yml build
 docker compose -f local.yml up
 ```
